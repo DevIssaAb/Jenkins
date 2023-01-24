@@ -38,7 +38,7 @@ log_file.write("#################################################\n")
 log_file.write("build_eb log file\n")
 log_file.write("#################################################\n")
 log_file.write("\n#################################################\n")
-log_file.close()
+
 #
 #
 #log_file = open("C:\Jenkins\Slave\JenkinsLearn\Hi.txt", "a")
