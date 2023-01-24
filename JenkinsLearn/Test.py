@@ -23,4 +23,5 @@ increment_ver = args.increment_ver
 build_doc = args.build_doc
 
 eb_build = os.environ.get("WAYLAND_BUILD")
+print("Building in directory: " + eb_build)
 os.system('echo eb_build={} increment_ver = {} , build_doc = {}> Hi.txt'.format(increment_ver,build_doc,eb_build))
