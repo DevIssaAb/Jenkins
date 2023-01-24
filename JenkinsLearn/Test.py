@@ -22,4 +22,4 @@ nobuild = args.nobuild
 increment_ver = args.increment_ver
 build_doc = args.build_doc
 
-os.system(f'echo  {nobuild} > Hi.txt')
+os.system('echo {} > Hi.txt'.format(nobuild))
