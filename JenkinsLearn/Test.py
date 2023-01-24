@@ -1,5 +1,5 @@
 import argparse
-
+import os
 
 #
 # This module builds the Wayland Build software.
@@ -22,3 +22,4 @@ nobuild = args.nobuild
 increment_ver = args.increment_ver
 build_doc = args.build_doc
 
+os.system(f'echo  {nobuild} > Hi.txt')
