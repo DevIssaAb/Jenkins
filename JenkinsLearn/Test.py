@@ -34,14 +34,14 @@ os.system('echo eb_build={} increment_ver = {} , build_doc = {}> Hi.txt'.format(
 
 log_file = open("C:\Jenkins\Slave\JenkinsLearn\Hi.txt", "a")
 log_file.truncate()
-log_file.write("#################################################\n")
+log_file.write("eb_build={} increment_ver = {} , build_doc = {}\n".format(WaylandDir,increment_ver,build_doc))
 log_file.write("build_eb log file\n")
 log_file.write("#################################################\n")
 log_file.write("\n#################################################\n")
 
 #
 #
-#log_file = open("C:\Jenkins\Slave\JenkinsLearn\Hi.txt", "a")
-#s="iisa"
-#log_file.write(s)
+log_file = open("C:\Jenkins\Slave\JenkinsLearn\Hi.txt", "a")
+s="iisa"
+log_file.write(s)
 
