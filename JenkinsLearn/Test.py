@@ -22,4 +22,5 @@ nobuild = args.nobuild
 increment_ver = args.increment_ver
 build_doc = args.build_doc
 
-os.system('echo increment_ver = {} , build_doc = {}> Hi.txt'.format(increment_ver,build_doc))
+eb_build = os.environ.get("WAYLAND_BUILD")
+os.system('echo eb_build={} increment_ver = {} , build_doc = {}> Hi.txt'.format(increment_ver,build_doc,eb_build))
