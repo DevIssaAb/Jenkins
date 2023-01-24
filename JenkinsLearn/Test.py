@@ -22,4 +22,4 @@ nobuild = args.nobuild
 increment_ver = args.increment_ver
 build_doc = args.build_doc
 
-os.system('echo {} > Hi.txt'.format(increment_ver))
+os.system('echo increment_ver = {} \n build_doc = {}> Hi.txt'.format(increment_ver,build_doc))
