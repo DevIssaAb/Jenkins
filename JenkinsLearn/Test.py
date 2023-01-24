@@ -23,16 +23,25 @@ increment_ver = args.increment_ver
 build_doc = args.build_doc
 
 
-# Get nuget packages for V8:
-#os.chdir('C:\Jenkins\Slave')
-#var=os.curdir
-#nuget = os.path.join(os.path.dirname(__file__), '../', 'nuget.exe') 
-#if not os.path.exists(nuget):
-#    print("Download nuget from nuget.org and copy it to root's parent folder first!")
-#    sys.exit(1)
+
 
 
 eb_build = os.environ.get("WAYLAND_BUILD")
 WaylandDir = os.environ['WAYLAND_BUILD']
 print("Building in directory: " + eb_build)
 os.system('echo eb_build={} increment_ver = {} , build_doc = {}> Hi.txt'.format(WaylandDir,increment_ver,build_doc))
+
+
+log_file = open("C:\Jenkins\Slave\issa.txt", "w")
+log_file.truncate()
+log_file.write("#################################################\n")
+log_file.write("build_eb log file\n")
+log_file.write("#################################################\n")
+log_file.write("\n#################################################\n")
+log_file.close()
+
+
+log_file = open("C:\Jenkins\Slave\issa.txt", "a")
+s="iisa"
+log_file.write(s)
+
