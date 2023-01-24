@@ -25,11 +25,11 @@ build_doc = args.build_doc
 
 # Get nuget packages for V8:
 #os.chdir('C:\Jenkins\Slave')
-var=os.curdir
-nuget = os.path.join(os.path.dirname(__file__), '../', 'nuget.exe') 
-if not os.path.exists(nuget):
-    print("Download nuget from nuget.org and copy it to root's parent folder first!")
-    sys.exit(1)
+#var=os.curdir
+#nuget = os.path.join(os.path.dirname(__file__), '../', 'nuget.exe') 
+#if not os.path.exists(nuget):
+#    print("Download nuget from nuget.org and copy it to root's parent folder first!")
+#    sys.exit(1)
 
 
 eb_build = os.environ.get("WAYLAND_BUILD")
