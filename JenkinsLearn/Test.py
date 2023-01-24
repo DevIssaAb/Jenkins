@@ -32,7 +32,7 @@ print("Building in directory: " + eb_build)
 os.system('echo eb_build={} increment_ver = {} , build_doc = {}> Hi.txt'.format(WaylandDir,increment_ver,build_doc))
 
 
-log_file = open("C:\Jenkins\Slave\JenkinsLearn\issa.txt", "a")
+log_file = open("C:\Jenkins\Slave\JenkinsLearn\Hi.txt", "a")
 log_file.truncate()
 log_file.write("#################################################\n")
 log_file.write("build_eb log file\n")
@@ -41,7 +41,7 @@ log_file.write("\n#################################################\n")
 log_file.close()
 
 
-log_file = open("C:\Jenkins\Slave\JenkinsLearn\issa.txt", "a")
+log_file = open("C:\Jenkins\Slave\JenkinsLearn\Hi.txt", "a")
 s="iisa"
 log_file.write(s)
 
