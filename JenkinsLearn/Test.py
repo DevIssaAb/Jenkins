@@ -14,14 +14,14 @@ parser = argparse.ArgumentParser(description='Optional app description')
 parser.add_argument('--nobuild', action='store_true', help='No build solution')                   
 parser.add_argument('--increment_ver', action='store_true', help='Increment version')
 parser.add_argument('--build_doc', action='store_true', help='Generate Doxygen')
-parser.add_argument('--branch_name', help='Branch name for installer')
+parser.add_argument('branch_name', help='Branch name for installer')
 
 args = parser.parse_args()
 
 nobuild = args.nobuild
 increment_ver = args.increment_ver
 build_doc = args.build_doc
-#branch_name = args.branch_name
+branch_name = args.branch_name
 
 
 
