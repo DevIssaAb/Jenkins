@@ -7,7 +7,7 @@ import os,sys
 nobuild = False       # TESTING
 increment_ver = False # increment version
 build_doc = False     # Build documentation
-branch_name = "master"
+branch_name = "main"
 
 # Instantiate the parser
 parser = argparse.ArgumentParser(description='Optional app description')
