@@ -42,6 +42,6 @@ log_file.write("\n#################################################\n")
 #
 #
 log_file = open("C:\Jenkins\Slave\Test\JenkinsLearn\Hi.txt", "a")
-s="iisa"
+s="Issa"
 log_file.write(s)
 
