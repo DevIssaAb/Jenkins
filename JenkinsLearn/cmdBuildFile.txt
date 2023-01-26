@@ -15,28 +15,21 @@ if %ReleaseNewVersion% == true (
 set ARG_STR=--increment_ver
 )
 if %BuildDoc% == true (
-set ARG_STR=%ARG_STR% --build_doc
+
+set ARG_STR=%ARG_STR%  --build_doc
 )
 
-rem Call build_eb.py with arguments
-python build_eb.py %ARG_STR% %branchname%
+
+
+if %ReleaseNewVersion% == true (
+rem Call update_versions.py
+python update_versions.py
 
 rem Catch errors
 if %errorlevel% neq 0 exit /b %errorlevel%
-
-rem extract new version from build_eb.py
-set /p BUILD=<version.log
-set VERSION_STR=Version: %BUILD%
-echo Branch:%Branch% %VERSION_STR%>bin\jenkins.txt
-
-rem Create config files and push them to Github
-if %PushConfig% == true (
-git checkout %branchname%
-git add data/system/config/\*.config
-git add data/system/config/\*.json
-git commit -m "Push config files created by Jenkins"
-git push origin %branchname%
 )
+
+
 
 rem Push new release to Github
 if %ReleaseNewVersion% == true (
@@ -70,6 +63,20 @@ git commit -am "%VERSION_STR%"
 git push origin main
 cd ../..
 )
+
+
+rem Call build_eb.py with arguments
+python build_eb.py %ARG_STR% %branchname%
+
+rem Catch errors
+if %errorlevel% neq 0 exit /b %errorlevel%
+
+rem extract version
+set /p BUILD=<version.log
+set VERSION_STR=Version: %BUILD%
+echo Branch:%Branch% %VERSION_STR%>bin\jenkins.txt
+
+
 
 rem Rename installer folder
 ren install install_%BUILD%_%branchname%_%BUILD_NUMBER%
