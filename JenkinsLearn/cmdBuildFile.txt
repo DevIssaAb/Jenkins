@@ -15,6 +15,7 @@ if %ReleaseNewVersion% == true (
 set ARG_STR=--increment_ver
 )
 if %BuildDoc% == true (
+
 set ARG_STR=%ARG_STR%  --build_doc
 )
 
@@ -27,6 +28,7 @@ python update_versions.py
 rem Catch errors
 if %errorlevel% neq 0 exit /b %errorlevel%
 )
+
 
 
 rem Push new release to Github
@@ -62,6 +64,7 @@ git push origin main
 cd ../..
 )
 
+
 rem Call build_eb.py with arguments
 python build_eb.py %ARG_STR% %branchname%
 
@@ -82,4 +85,5 @@ ren install install_%BUILD%_%branchname%_%BUILD_NUMBER%
 :: Something like this:
 :: API_JSON=$(printf '{"tag_name": "v%s","target_commitish": "master","name": "v%s","body": "Release of version :: %s","draft": false,"prerelease": false}' $VERSION $VERSION $VERSION)
 :: curl --data "$API_JSON" https://api.github.com/repos/:owner/:repository/releases?access_token=:access_token
+
 
