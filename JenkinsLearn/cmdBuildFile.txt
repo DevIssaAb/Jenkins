@@ -1,0 +1,82 @@
+set WAYLAND_BUILD=%WORKSPACE%
+echo %WAYLAND_BUILD%
+
+rem Delete previous artifacts
+del build_eb.log
+del bin\jenkins.txt
+
+REM Split branch parameter by / delimiter (remote/branch) for pushing to git (other Jenkins plugins to publish on Git did not work!)
+for /F "tokens=1,2 delims=/" %%a in (^"%Branch:"=.%^") do (
+set branchname=%%b
+)
+
+rem Parssing arguments
+if %ReleaseNewVersion% == true (
+set ARG_STR=--increment_ver
+)
+if %BuildDoc% == true (
+set ARG_STR=%ARG_STR% --build_doc
+)
+
+rem Call build_eb.py with arguments
+python build_eb.py %ARG_STR% %branchname%
+
+rem Catch errors
+if %errorlevel% neq 0 exit /b %errorlevel%
+
+rem extract new version from build_eb.py
+set /p BUILD=<version.log
+set VERSION_STR=Version: %BUILD%
+echo Branch:%Branch% %VERSION_STR%>bin\jenkins.txt
+
+rem Create config files and push them to Github
+if %PushConfig% == true (
+git checkout %branchname%
+git add data/system/config/\*.config
+git add data/system/config/\*.json
+git commit -m "Push config files created by Jenkins"
+git push origin %branchname%
+)
+
+rem Push new release to Github
+if %ReleaseNewVersion% == true (
+git checkout %branchname%
+rem add only new version files
+git add doc/eb.dox
+git add src/core/eb_version.h
+git add src/sql/eb_data.sql  
+git add src/sql/eb_log.sql
+git add src/sql/eb_pattern.sql
+git add src/version.pri
+git add -f doc/ref/auto/dv.md
+git add -f doc/ref/auto/rc.md
+git add src/gui/gui_system/gui_hmi/hmi/imports/hmi/DV.qml
+git add src/gui/gui_system/gui_hmi/hmi/imports/hmi/RC.qml
+git commit -am "%VERSION_STR%"
+git push origin %branchname%
+REM Tags are not working yet!
+REM git tag -a CI.%BUILD_NUMBER% -m "%VERSION_STR%"
+REM git push origin CI.%BUILD_NUMBER%
+)
+
+rem Push to external ToolControlScripts-Calibur repo
+if %ReleaseNewVersion% == true (
+cd scripts/system
+git checkout main
+REM git add .
+git add dev/DV_keys.js
+git add dev/RC_keys.js
+git commit -am "%VERSION_STR%"
+git push origin main
+cd ../..
+)
+
+rem Rename installer folder
+ren install install_%BUILD%_%branchname%_%BUILD_NUMBER%
+
+:: TODO: automatically create GitHub release ?
+:: Something like this:
+:: API_JSON=$(printf '{"tag_name": "v%s","target_commitish": "master","name": "v%s","body": "Release of version :: %s","draft": false,"prerelease": false}' $VERSION $VERSION $VERSION)
+:: curl --data "$API_JSON" https://api.github.com/repos/:owner/:repository/releases?access_token=:access_token
+
+
