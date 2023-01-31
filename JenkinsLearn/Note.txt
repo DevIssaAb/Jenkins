@@ -4,3 +4,9 @@ GitHub CLI for Windows
 
 Install: winget install --id GitHub.cli
 Upgrade: winget upgrade --id GitHub.cli
+
+To add  save dir is dir change
+
+git config --global --add safe.directory <new-dir>
+
+EX: git config --global --add safe.directory C:/Jenkins/Slave/Test
