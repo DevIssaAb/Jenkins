@@ -79,7 +79,7 @@ allData = {
 }
 
 var ='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'
-var2 ='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'
+var2 ='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'
 
 #create_pull_request(username,'Jenkins','Use instead of ','Hi issa branch','issa','main',var2)
 
@@ -88,6 +88,7 @@ var2 ='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'
 
 #login into github account
 login  = Github(var2)
+
 #
 ##get the user
 user  = login.get_user()
@@ -100,4 +101,4 @@ user  = login.get_user()
 ##create new file
 #new_repo.create_file("New-File.txt", "new commit", "Data Inside the File")
 repo = login.get_repo(f"{username}/Jenkins")
-pr = repo.create_pull('Use instead of 1', 'Hi issa branch', head="issa", base="main")
+pr = repo.create_pull('Use instead of 19994', 'Hi issa branch19', head="issa", base="main")

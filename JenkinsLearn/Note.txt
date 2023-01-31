@@ -1,0 +1,6 @@
+Enable experimental support for pseudo consoles
+
+GitHub CLI for Windows 
+
+Install: winget install --id GitHub.cli
+Upgrade: winget upgrade --id GitHub.cli
