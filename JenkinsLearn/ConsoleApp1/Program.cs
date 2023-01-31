@@ -6,9 +6,7 @@
         public static void Main(string[] args)
         {
             Console.WriteLine("Hello Issa!");
-
-            //Git Hub 1996
-
+            //Git Hub 1998
             //new push
             //666
         }
