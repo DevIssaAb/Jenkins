@@ -10,3 +10,12 @@ To add  save dir is dir change
 git config --global --add safe.directory <new-dir>
 
 EX: git config --global --add safe.directory C:/Jenkins/Slave/Test
+
+
+For bash
+cd /cygdrive/c/Users/Devadmin/Desktop/Test/out
+dir=$PWD
+dir2=/cygdrive/c/Users/Devadmin/Desktop/Test/in
+NameBranchDir=$(find * -maxdepth 0 -type d)
+rm -r $dir2/$NameBranchDir
+cp -r $dir/$NameBranchDir $dir2

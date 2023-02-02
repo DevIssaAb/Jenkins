@@ -79,7 +79,7 @@ allData = {
 }
 
 var ='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'
-var2 ='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'
+var2 ='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'
 
 #create_pull_request(username,'Jenkins','Use instead of ','Hi issa branch','issa','main',var2)
 
