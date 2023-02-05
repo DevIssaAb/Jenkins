@@ -1,0 +1,3 @@
+MSBuild.exe JenkinsLearn.sln -property:Configuration=Debug -p:RestorePackagesConfig=true
+msbuild -t:restore
+dotnet build JenkinsLearn.sln
