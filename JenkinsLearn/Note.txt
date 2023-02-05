@@ -21,6 +21,6 @@ rm -r $dir2/$NameBranchDir
 cp -r $dir/$NameBranchDir $dir2
 
 
-git config user.name "Your Name"
-git config user.email "youremail@yourdomain.com"
+git config --global user.name "Your Name"
+git config --global user.email "youremail@yourdomain.com"
 git config --list
