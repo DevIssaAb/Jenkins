@@ -1,3 +1,9 @@
 MSBuild.exe JenkinsLearn.sln -property:Configuration=Debug -p:RestorePackagesConfig=true
 msbuild -t:restore
 dotnet build JenkinsLearn.sln
+
+dotnet test --no-build --configuration Release --test-adapter-path:.
+
+dotnet test --logger trx
+
+dotnet build  ConsoleApp1.csproj  -p:DefineConstants=REVIT2019
