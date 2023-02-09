@@ -50,6 +50,7 @@ REM git push origin CI.%BUILD_NUMBER%
 
 rem Push to external ToolControlScripts-Calibur repo
 cd scripts/system
+git checkout main
 git branch main_v!BUILD!
 git checkout main_v!BUILD!
 REM git add .
