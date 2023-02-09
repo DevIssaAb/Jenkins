@@ -43,7 +43,7 @@ git add src/gui/gui_system/gui_hmi/hmi/imports/hmi/DV.qml
 git add src/gui/gui_system/gui_hmi/hmi/imports/hmi/RC.qml
 git commit -am "!VERSION_STR!"
 git push origin !new_branch!
-gh pr create --title "!VERSION_STR!" --body ""  --base %branchname% --head !new_branch!
+gh pr create --title "!VERSION_STR!" --body " "  --base %branchname% --head !new_branch!
 REM Tags are not working yet!
 REM git tag -a CI.%BUILD_NUMBER% -m "%VERSION_STR%"
 REM git push origin CI.%BUILD_NUMBER%
@@ -52,12 +52,14 @@ rem Push to external ToolControlScripts-Calibur repo
 cd scripts/system
 git branch main_v!BUILD!
 git checkout main_v!BUILD!
+REM git add .
 git add dev/DV_keys.js
 git add dev/RC_keys.js
 git commit -am "!VERSION_STR!"
 git push origin main_v!BUILD!
-gh pr create --title "!VERSION_STR!" --body ""  --base main --head main_v!BUILD!
+gh pr create --title "!VERSION_STR!" --body " "  --base main --head main_v!BUILD!
 cd ../..
+
 )
 
 rem Parssing arguments
