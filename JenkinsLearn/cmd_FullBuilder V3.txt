@@ -28,6 +28,7 @@ set VERSION_STR=Version: !BUILD!
 
 set new_branch=%branchname%_v!BUILD!
 rem Push new release to Github
+git checkout %branchname%
 git branch !new_branch!
 git checkout !new_branch!
 rem add only new version files
@@ -60,7 +61,6 @@ git commit -am "!VERSION_STR!"
 git push origin main_v!BUILD!
 gh pr create --title "!VERSION_STR!" --body " "  --base main --head main_v!BUILD!
 cd ../..
-
 )
 
 rem Parssing arguments
