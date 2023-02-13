@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		GitHubAPI.py = GitHubAPI.py
 		Note.txt = Note.txt
 		Test.txt = Test.txt
+		TestPR.py = TestPR.py
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CMD_FullBuilder", "CMD_FullBuilder", "{31EBD676-4BD0-4C00-B564-FD71F764D1FF}"
