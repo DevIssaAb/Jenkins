@@ -3,7 +3,7 @@ import json
 
 username = "DevIssaAb"
 repo ='Jenkins'
-token='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'
+token='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'
 
 data = {
         'owner': username,
@@ -12,7 +12,6 @@ data = {
         "body": "Please pull these awesome changes in!",
         "head": "issa",
         "base": "main",
-       
 }
 
 r=requests.post(f'https://api.github.com/repos/{username}/{repo}/pulls',    headers = {
