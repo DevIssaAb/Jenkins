@@ -53,16 +53,14 @@ REM Tags are not working yet!
 REM git tag -a CI.%BUILD_NUMBER% -m "%VERSION_STR%"
 REM git push origin CI.%BUILD_NUMBER%
 
-rem Push to external ToolControlScripts-Calibur repo
-cd scripts/system
 
+cd scripts/system
 rem delete main_v!BUILD! if it exists in ToolControlScripts-Calibur repository
 git push --delete origin main_v!BUILD!
-
+rem Push to external ToolControlScripts-Calibur repo
 git checkout main
 git branch main_v!BUILD!
 git checkout main_v!BUILD!
-REM git add .
 git add dev/DV_keys.js
 git add dev/RC_keys.js
 git commit -am "!VERSION_STR!"
