@@ -1,0 +1,100 @@
+set WAYLAND_BUILD=%WORKSPACE%
+echo %WAYLAND_BUILD%
+
+rem Delete previous artifacts
+del build_eb.log
+del bin\jenkins.txt
+del version.log
+
+REM Split branch parameter by / delimiter (remote/branch) for pushing to git (other Jenkins plugins to publish on Git did not work!)
+for /F "tokens=1,2 delims=/" %%a in (^"%Branch:"=.%^") do (
+set branchname=%%b
+)
+
+setlocal EnableDelayedExpansion
+
+rem update version for ReleaseNewVersion
+if %ReleaseNewVersion% == true (
+
+rem Call update_versions.py
+python update_versions.py
+
+rem Catch errors
+if %errorlevel% neq 0 exit /b %errorlevel%
+
+rem extract new version from update_versions.py
+set /p BUILD=<version.log
+set VERSION_STR=Version: !BUILD!
+
+set new_branch=%branchname%_v!BUILD!
+
+rem delete !new_branch! if it exists in the remote repository
+git push --delete origin !new_branch!
+
+rem Push new release to Github
+git checkout %branchname%
+git branch !new_branch!
+git checkout !new_branch!
+rem add only new version files
+git add doc/eb.dox
+git add src/core/eb_version.h
+git add src/sql/eb_data.sql  
+git add src/sql/eb_log.sql
+git add src/sql/eb_pattern.sql
+git add src/version.pri
+git add -f doc/ref/auto/dv.md
+git add -f doc/ref/auto/rc.md
+git add src/gui/gui_system/gui_hmi/hmi/imports/hmi/DV.qml
+git add src/gui/gui_system/gui_hmi/hmi/imports/hmi/RC.qml
+git commit -am "!VERSION_STR!"
+git push origin !new_branch!
+gh pr create --title "!VERSION_STR!" --body " "  --base %branchname% --head !new_branch!
+REM Tags are not working yet!
+REM git tag -a CI.%BUILD_NUMBER% -m "%VERSION_STR%"
+REM git push origin CI.%BUILD_NUMBER%
+
+rem Push to external ToolControlScripts-Calibur repo
+cd scripts/system
+
+rem delete main_v!BUILD! if it exists in ToolControlScripts-Calibur repository
+git push --delete origin main_v!BUILD!
+
+git checkout main
+git branch main_v!BUILD!
+git checkout main_v!BUILD!
+REM git add .
+git add dev/DV_keys.js
+git add dev/RC_keys.js
+git commit -am "!VERSION_STR!"
+git push origin main_v!BUILD!
+gh pr create --title "!VERSION_STR!" --body " "  --base main --head main_v!BUILD!
+cd ../..
+)
+
+rem Parssing arguments
+if %ReleaseNewVersion% == true (
+set ARG_STR= --increment_ver
+)
+if %BuildDoc% == true (
+set ARG_STR= %ARG_STR% --build_doc
+)
+
+rem Call build_eb.py with arguments
+python build_eb.py %ARG_STR% %branchname%
+
+rem Catch errors
+if %errorlevel% neq 0 exit /b %errorlevel%
+
+rem extract new version from build_eb.py
+set /p BUILD=<version.log
+set VERSION_STR=Version: %BUILD%
+echo Branch:%Branch% %VERSION_STR%>bin\jenkins.txt
+
+rem Rename installer folder
+ren install install_%BUILD%_%branchname%_%BUILD_NUMBER%
+
+:: TODO: automatically create GitHub release ?
+:: Something like this:
+:: API_JSON=$(printf '{"tag_name": "v%s","target_commitish": "master","name": "v%s","body": "Release of version :: %s","draft": false,"prerelease": false}' $VERSION $VERSION $VERSION)
+:: curl --data "$API_JSON" https://api.github.com/repos/:owner/:repository/releases?access_token=:access_token
+
