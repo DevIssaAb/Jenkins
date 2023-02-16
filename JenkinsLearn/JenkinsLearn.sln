@@ -22,6 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CMD_FullBuilder", "CMD_Full
 		cmd_FullBuilder V2.txt = cmd_FullBuilder V2.txt
 		cmd_FullBuilder V3.txt = cmd_FullBuilder V3.txt
 		cmd_FullBuilder V4.txt = cmd_FullBuilder V4.txt
+		draft.txt = draft.txt
 	EndProjectSection
 EndProject
 Global

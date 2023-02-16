@@ -1,0 +1,75 @@
+set WAYLAND_BUILD=%WORKSPACE%
+echo %WAYLAND_BUILD%
+
+rem Delete previous artifacts
+del build_eb.log
+del bin\jenkins.txt
+del version.log
+
+REM Split branch parameter by / delimiter (remote/branch) for pushing to git (other Jenkins plugins to publish on Git did not work!)
+for /F "tokens=1,2 delims=/" %%a in (^"%Branch:"=.%^") do (
+set branchname=%%b
+)
+
+setlocal EnableDelayedExpansion
+
+rem update version for ReleaseNewVersion
+if %ReleaseNewVersion% == true (
+
+rem Call update_versions.py
+python update_versions.py
+
+rem Catch errors
+if %errorlevel% neq 0 exit /b %errorlevel%
+
+
+rem extract new version from update_versions.py
+set /p BUILD=<version.log
+set VERSION_STR=Version: !BUILD!
+
+set new_branch=%branchname%_v!BUILD!
+rem Push new release to Github
+git checkout %branchname%
+git branch !new_branch!
+git checkout !new_branch!
+rem add only new version files
+git add doc/eb.dox
+git add src/core/eb_version.h
+git add src/sql/eb_data.sql  
+git add src/sql/eb_log.sql
+git add src/sql/eb_pattern.sql
+git add src/version.pri
+git add -f doc/ref/auto/dv.md
+git add -f doc/ref/auto/rc.md
+git add src/gui/gui_system/gui_hmi/hmi/imports/hmi/DV.qml
+git add src/gui/gui_system/gui_hmi/hmi/imports/hmi/RC.qml
+git commit -am "!VERSION_STR!"
+git push origin !new_branch!
+gh pr create --title "!VERSION_STR!" --body " "  --base %branchname% --head !new_branch!
+
+rem Push to external ToolControlScripts-Calibur repo
+cd scripts/system
+git checkout main
+git branch main_v!BUILD!
+git checkout main_v!BUILD!
+REM git add .
+git add dev/DV_keys.js
+git add dev/RC_keys.js
+git commit -am "!VERSION_STR!"
+
+cd ../..
+
+)
+
+rem Parssing arguments
+if %ReleaseNewVersion% == true (
+set ARG_STR= --increment_ver
+)
+if %BuildDoc% == true (
+set ARG_STR= %ARG_STR% --build_doc
+)
+
+
+
+
+
