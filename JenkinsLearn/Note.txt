@@ -35,3 +35,13 @@ git branch -m main master
 git fetch origin
 git branch -u origin/master master
 git remote set-head origin -a
+
+##Git Commit##
+$COMMIT=$(git log -n 1 --pretty=format:%h -- <PathFile>)
+or
+$COMMIT=$(git log -n 1 --pretty=format:%H -- <PathFile>)
+echo $COMMIT
+git log -n 1
+git log -n 1 --pretty=format:%H
+git log -n 2  <PathFile>
+##Git Commit
