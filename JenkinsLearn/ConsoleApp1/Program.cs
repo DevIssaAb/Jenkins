@@ -14,9 +14,7 @@
 
 #endif
             Console.ReadKey();
-            //Git Hub 1998
-            //new push
-            //666
+            //Git Hub 2000
         }
     }
 }
