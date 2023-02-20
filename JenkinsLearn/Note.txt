@@ -64,3 +64,10 @@ C:\Users\modar\AppData\Local/ngrok/ngrok.yml
 
 #To clone only .git folder
 git clone --bare --branch=main --single-branch <URL Repo...>
+#
+
+
+#You can check out specific files or folders from a repo using git archive. I've done this 
+#from a Jenkinsfile using a shell command like so:
+sh("git archive --remote=${repo_url} ${ref} ${path} | tar x")
+#
