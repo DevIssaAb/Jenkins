@@ -45,3 +45,12 @@ git log -n 1
 git log -n 1 --pretty=format:%H
 git log -n 2  <PathFile>
 ##Git Commit
+
+
+# 
+GitHub - Jenkins: WebHooks to build Jenkins Build - Solution to "We couldn’t deliver this payload"
+https://www.youtube.com/watch?v=PejmihHmpPc
+
+to Save authtoken
+C:\Users\modar\AppData\Local/ngrok/ngrok.yml
+#
