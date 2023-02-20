@@ -24,6 +24,7 @@ cp -r $dir/$NameBranchDir $dir2
 git config --global user.name "Your Name"
 git config --global user.email "youremail@yourdomain.com"
 git config --list
+git config --global --add safe.directory C:/Jenkins/Slave/TestChnageFile
 
 
 The default branch has been renamed!
