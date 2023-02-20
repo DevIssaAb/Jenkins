@@ -49,7 +49,7 @@ git log -n 2  <PathFile>
 
 
 # 
-GitHub - Jenkins: WebHooks to build Jenkins Build - Solution to "We couldn’t deliver this payload"
+GitHub - Jenkins: WebHooks to build Jenkins Build - Solution to "We couldnâ€™t deliver this payload"
 https://www.youtube.com/watch?v=PejmihHmpPc
 
 download ngrok
