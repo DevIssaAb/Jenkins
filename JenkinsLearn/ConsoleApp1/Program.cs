@@ -13,10 +13,9 @@
             File.AppendAllLines(@"C:\Users\modar\Desktop\jenkins\Jenkins\JenkinsLearn\ConsoleApp1\bin\Debug\net7.0\test.txt",new string[] { "Hello Issa1994" });
 
 #endif
+
             Console.ReadKey();
-            //ada
-          
-            //Git Hub 3000
+
         }
     }
 }
