@@ -71,3 +71,17 @@ git clone --bare --branch=main --single-branch <URL Repo...>
 #from a Jenkinsfile using a shell command like so:
 sh("git archive --remote=${repo_url} ${ref} ${path} | tar x")
 #
+
+# Number of file
+# in Git bash
+$ a=$(cat test.txt | wc -l)
+echo $a
+
+# in CMD
+type test.txt | find /c /v ""
+
+
+# in PowerShell
+$a=type test.txt | Measure-Object -Line | %{$_.Lines}
+echo $a
+#
