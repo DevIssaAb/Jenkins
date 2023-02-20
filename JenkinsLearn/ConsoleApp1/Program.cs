@@ -3,8 +3,6 @@
   
     public class Program
     {
-      
-      
         public static void Main(string[] args)
         {
           
@@ -17,8 +15,8 @@
             File.AppendAllLines(@"C:\Users\modar\Desktop\jenkins\Jenkins\JenkinsLearn\ConsoleApp1\bin\Debug\net7.0\test.txt",new string[] { "Hello Issa1994" });
 
 #endif
-//dasds
             Console.ReadKey();
+//dasds
           
           
 
