@@ -85,3 +85,6 @@ type test.txt | find /c /v ""
 $a=type test.txt | Measure-Object -Line | %{$_.Lines}
 echo $a
 #
+
+
+https://github.com/DevIssaAb/Jenkins/trunk/JenkinsLearn/ConsoleApp1
