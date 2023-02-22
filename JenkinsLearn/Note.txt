@@ -45,13 +45,13 @@ echo $COMMIT
 git log -n 1
 git log -n 1 --pretty=format:%H
 git log -n 2  <PathFile>
-##Git Commit
+##
 
 
 # 
-GitHub - Jenkins: WebHooks to build Jenkins Build - Solution to "We couldn’t deliver this payload"
+# GitHub - Jenkins: WebHooks to build Jenkins Build - Solution to "We couldn’t deliver this payload"
 https://www.youtube.com/watch?v=PejmihHmpPc
-
+#
 download ngrok
 steps:
 1. Run ngrok.exe.
@@ -86,5 +86,5 @@ $a=type test.txt | Measure-Object -Line | %{$_.Lines}
 echo $a
 #
 
-
+# by SVN
 https://github.com/DevIssaAb/Jenkins/trunk/JenkinsLearn/ConsoleApp1
