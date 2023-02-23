@@ -14,7 +14,7 @@ data = {
         "base": "main",
 }
 
-r=requests.post(f'https://api.github.com/repos/{username}/{repo}/pulls',    headers = {
+r=requests.post(f'https://api.github.com/repos/{username}/{repo}/pulls', headers = {
         "Authorization": "Bearer   {0}".format(token),
         "Accept": "application/vnd.github+json" ,
         "X-GitHub-Api-Version": "2022-11-28"
