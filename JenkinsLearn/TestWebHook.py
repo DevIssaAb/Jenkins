@@ -26,4 +26,4 @@ if not r.ok:
     #print (r.json())
 
 #Not Work
-#gh api /repos/DevIssaAb/Test101/hooks --method POST  -H "Accept": "application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" -f "name":"web" -f "active":True -f  "events":["push"] "config":{"url":"https://example.com/webhook","content_type":"json","insecure_ssl":"0"}
+#gh api /repos/DevIssaAb/Test101/hooks --method POST  -H "Accept": "application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" -f "name":"web" -f "active":True -f  "events":["push"] -f "config":{"url":"https://example.com/webhook","content_type":"json","insecure_ssl":"0"}
