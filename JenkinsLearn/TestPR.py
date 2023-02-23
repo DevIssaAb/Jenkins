@@ -25,3 +25,6 @@ if not r.ok:
     print("Request Failed: {0}".format(r.text))
     print(r.content)
     #print (r.json())
+
+#If run in GitHub CLI DevIssaAb
+#gh api /repos/DevIssaAb/Jenkins/pulls --method POST  -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" -f title='A' -f body='B' -f head='issa' -f base='main' 
