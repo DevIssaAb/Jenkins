@@ -89,5 +89,5 @@ echo $a
 # by SVN
 https://github.com/DevIssaAb/Jenkins/trunk/JenkinsLearn/ConsoleApp1
 
-
+#Clone with submodules
 git clone --recurse-submodules https://github.com/DevIssaAb/Jenkins.git
