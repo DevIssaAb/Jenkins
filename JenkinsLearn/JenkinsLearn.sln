@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		MSBuild.exe.txt = MSBuild.exe.txt
 		Note.txt = Note.txt
 		numLineFile.bat = numLineFile.bat
+		ReadJson.py = ReadJson.py
 		t.bat = t.bat
 		Test.txt = Test.txt
 		TestPR.py = TestPR.py
