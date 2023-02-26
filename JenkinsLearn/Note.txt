@@ -24,6 +24,7 @@ cp -r $dir/$NameBranchDir $dir2
 git config --global user.name "Your Name"
 git config --global user.email "youremail@yourdomain.com"
 git config --list
+git config --global --add safe.directory C:/Jenkins/Slave/TestChnageFile
 
 
 The default branch has been renamed!
@@ -35,3 +36,58 @@ git branch -m main master
 git fetch origin
 git branch -u origin/master master
 git remote set-head origin -a
+
+##Git Commit##
+$COMMIT=$(git log -n 1 --pretty=format:%h -- <PathFile>)
+or
+$COMMIT=$(git log -n 1 --pretty=format:%H -- <PathFile>)
+echo $COMMIT
+git log -n 1
+git log -n 1 --pretty=format:%H
+git log -n 2  <PathFile>
+##
+
+
+# 
+# GitHub - Jenkins: WebHooks to build Jenkins Build - Solution to "We couldn’t deliver this payload"
+https://www.youtube.com/watch?v=PejmihHmpPc
+#
+download ngrok
+steps:
+1. Run ngrok.exe.
+2. Sign Up in ngrok.
+3. Run ngrok config add-authtoken <your authtoken>
+4. Run ngrok http 8080.
+to Save authtoken
+C:\Users\modar\AppData\Local/ngrok/ngrok.yml
+#
+
+#To clone only .git folder
+git clone --bare --branch=main --single-branch <URL Repo...>
+#
+
+
+#You can check out specific files or folders from a repo using git archive. I've done this 
+#from a Jenkinsfile using a shell command like so:
+sh("git archive --remote=${repo_url} ${ref} ${path} | tar x")
+#
+
+# Number of file
+# in Git bash
+$ a=$(cat test.txt | wc -l)
+echo $a
+
+# in CMD
+type test.txt | find /c /v ""
+
+
+# in PowerShell
+$a=type test.txt | Measure-Object -Line | %{$_.Lines}
+echo $a
+#
+
+# by SVN
+https://github.com/DevIssaAb/Jenkins/trunk/JenkinsLearn/ConsoleApp1
+
+#Clone with submodules
+git clone --recurse-submodules https://github.com/DevIssaAb/Jenkins.git

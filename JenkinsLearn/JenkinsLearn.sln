@@ -10,8 +10,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6A70116-1562-4DA2-9D08-B1180B88D9E1}"
 	ProjectSection(SolutionItems) = preProject
 		GitHubAPI.py = GitHubAPI.py
+		MSBuild.exe.txt = MSBuild.exe.txt
 		Note.txt = Note.txt
+		numLineFile.bat = numLineFile.bat
+		t.bat = t.bat
 		Test.txt = Test.txt
+		TestPR.py = TestPR.py
+		TestWebHook.py = TestWebHook.py
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CMD_FullBuilder", "CMD_FullBuilder", "{31EBD676-4BD0-4C00-B564-FD71F764D1FF}"
@@ -20,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CMD_FullBuilder", "CMD_Full
 		cmd_FullBuilder V1.txt = cmd_FullBuilder V1.txt
 		cmd_FullBuilder V2.txt = cmd_FullBuilder V2.txt
 		cmd_FullBuilder V3.txt = cmd_FullBuilder V3.txt
+		cmd_FullBuilder V4.txt = cmd_FullBuilder V4.txt
+		draft.txt = draft.txt
 	EndProjectSection
 EndProject
 Global
