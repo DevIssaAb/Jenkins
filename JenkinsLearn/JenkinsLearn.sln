@@ -9,15 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestProject", "UnitTest
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6A70116-1562-4DA2-9D08-B1180B88D9E1}"
 	ProjectSection(SolutionItems) = preProject
-		GitHubAPI.py = GitHubAPI.py
 		MSBuild.exe.txt = MSBuild.exe.txt
 		Note.txt = Note.txt
-		numLineFile.bat = numLineFile.bat
-		ReadJson.py = ReadJson.py
-		t.bat = t.bat
 		Test.txt = Test.txt
-		TestPR.py = TestPR.py
-		TestWebHook.py = TestWebHook.py
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CMD_FullBuilder", "CMD_FullBuilder", "{31EBD676-4BD0-4C00-B564-FD71F764D1FF}"
@@ -28,6 +22,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CMD_FullBuilder", "CMD_Full
 		cmd_FullBuilder V3.txt = cmd_FullBuilder V3.txt
 		cmd_FullBuilder V4.txt = cmd_FullBuilder V4.txt
 		draft.txt = draft.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PythonSecript", "PythonSecript", "{B1155990-6C6E-4C7A-9ED2-61B82C414DC3}"
+	ProjectSection(SolutionItems) = preProject
+		GitHubAPI.py = GitHubAPI.py
+		ReadJson.py = ReadJson.py
+		TestPR.py = TestPR.py
+		TestWebHook.py = TestWebHook.py
+		test_keygen.py = test_keygen.py
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bat", "bat", "{B317FD41-38E7-4841-BF8B-B26BF9952CE2}"
+	ProjectSection(SolutionItems) = preProject
+		t.bat = t.bat
+		ChangeFileInGit.bat = ChangeFileInGit.bat
 	EndProjectSection
 EndProject
 Global
