@@ -91,3 +91,12 @@ https://github.com/DevIssaAb/Jenkins/trunk/JenkinsLearn/ConsoleApp1
 
 #Clone with submodules
 git clone --recurse-submodules https://github.com/DevIssaAb/Jenkins.git
+
+###
+To Active New Slave in Jenkins
+
+run tow command in cmd
+curl -sO http://localhost:8080/jnlpJars/agent.jar
+
+java -jar agent.jar -jnlpUrl http://localhost:8080/manage/computer/Slave/jenkins-agent.jnlp -workDir "C:\Jenkins\Slave\Workspace"
+##
