@@ -99,4 +99,7 @@ run tow command in cmd
 curl -sO http://localhost:8080/jnlpJars/agent.jar
 
 java -jar agent.jar -jnlpUrl http://localhost:8080/manage/computer/Slave/jenkins-agent.jnlp -workDir "C:\Jenkins\Slave\Workspace"
+
+To Solve : The server rejected the connection: None of the protocols were accepted
+https://stackoverflow.com/questions/35309316/the-server-rejected-the-connection-none-of-the-protocols-were-accepted
 ##
