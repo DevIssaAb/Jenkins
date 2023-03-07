@@ -35,8 +35,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PythonSecript", "PythonSecr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bat", "bat", "{B317FD41-38E7-4841-BF8B-B26BF9952CE2}"
 	ProjectSection(SolutionItems) = preProject
-		t.bat = t.bat
 		ChangeFileInGit.bat = ChangeFileInGit.bat
+		MergePR.bat = MergePR.bat
+		t.bat = t.bat
 	EndProjectSection
 EndProject
 Global
