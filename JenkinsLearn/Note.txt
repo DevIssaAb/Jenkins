@@ -103,3 +103,5 @@ java -jar agent.jar -jnlpUrl http://localhost:8080/manage/computer/Slave/jenkins
 To Solve : The server rejected the connection: None of the protocols were accepted
 https://stackoverflow.com/questions/35309316/the-server-rejected-the-connection-none-of-the-protocols-were-accepted
 ##
+
+Issa
