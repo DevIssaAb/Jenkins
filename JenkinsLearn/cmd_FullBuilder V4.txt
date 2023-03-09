@@ -17,7 +17,7 @@ rem update version for ReleaseNewVersion
 if %ReleaseNewVersion% == true (
 
 rem Call update_versions.py
-python update_versions.py
+python update_versions.py %BUILD_NUMBER%
 
 rem Catch errors
 if %errorlevel% neq 0 exit /b %errorlevel%
